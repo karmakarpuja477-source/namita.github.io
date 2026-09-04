@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>[YOUR NAME] | GIS Analyst Portfolio</title>
+  <meta name="description"
+    content="Professional portfolio of [YOUR NAME], GIS Analyst specializing in GIS, Remote Sensing, Geospatial Analysis and Machine Learning." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    /* ==============================
+       ROOT VARIABLES
+    ============================== */
+
+    :root {
+      --bg: #070b17;
+      --bg-secondary: #0d1326;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-hover: rgba(255, 255, 255, 0.10);
+
+      --text: #f4f7ff;
+      --text-secondary: #aab4cf;
+
+      --blue: #3b82f6;
+      --purple: #8b5cf6;
+      --cyan: #22d3ee;
+
+      --gradient:
+        linear-gradient(135deg,
+          #3b82f6,
+          #8b5cf6,
+          #22d3ee);
+
+      --border:
+        rgba(255, 255, 255, 0.10);
+
+      --shadow:
+        0 20px 50px rgba(0, 0, 0, 0.30);
+
+      --radius: 20px;
+
+      --max-width: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top left,
+          rgba(59, 130, 246, 0.12),
+          transparent 35%),
+        radial-gradient(circle at bottom right,
+          rgba(139, 92, 246, 0.15),
+          transparent 40%),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ==============================
+       UTILITIES
+    ============================== */
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 65px;
+    }
+
+    .section-tag {
+      color: var(--cyan);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 15px;
+    }
+
+    .section-description {
+      color: var(--text-secondary);
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ==============================
+       BUTTONS
+    ============================== */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      padding: 14px 24px;
+      border-radius: 12px;
+
+      font-weight: 600;
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      box-shadow:
+        0 10px 30px rgba(59, 130, 246, 0.25);
+    }
+
+    .btn-primary:hover {
+      box-shadow:
+        0 15px 40px rgba(139, 92, 246, 0.35);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    /* ==============================
+       NAVIGATION
+    ============================== */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      z-index: 1000;
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      background: rgba(7, 11, 23, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    nav {
+      height: 75px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-btn {
+      padding: 10px 18px;
+      font-size: 0.85rem;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* ==============================
+       HERO
+    ============================== */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      padding-top: 120px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+
+      width: 400px;
+      height: 400px;
+
+      background:
+        radial-gradient(circle,
+          rgba(59,130,246,0.18),
+          transparent 70%);
+
+      top: 5%;
+      left: -100px;
+
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 15px;
+
+      border-radius: 30px;
+
+      background: rgba(59,130,246,0.10);
+      border: 1px solid rgba(59,130,246,0.25);
+
+      color: var(--cyan);
+
+      font-size: 0.85rem;
+
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1.05;
+
+      margin-bottom: 20px;
+    }
+
+    .hero-role {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--text-secondary);
+
+      margin-bottom: 25px;
+    }
+
+    .hero-description {
+      max-width: 700px;
+
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      margin-bottom: 35px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+    }
+
+    .social-links a {
+      width: 44px;
+      height: 44px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 12px;
+
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+
+      color: var(--text-secondary);
+
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--gradient);
+      color: white;
+
+      transform: translateY(-4px);
+    }
+
+    /* ==============================
+       GLASS CARDS
+    ============================== */
+
+    .glass-card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    /* ==============================
+       ABOUT
+    ============================== */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.1fr 0.9fr;
+
+      gap: 50px;
+
+      align-items: center;
+    }
+
+    .about-content h3 {
+      font-family: "Space Grotesk";
+      font-size: 1.8rem;
+
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+
+    .stats-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 18px;
+    }
+
+    .stat-card {
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+
+      font-family: "Space Grotesk";
+      font-size: 2rem;
+      font-weight: 700;
+
+      color: var(--cyan);
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* ==============================
+       SKILLS
+    ============================== */
+
+    .skills-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 28px;
+
+      text-align: center;
+
+      transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      background: var(--card-hover);
+    }
+
+    .skill-icon {
+      width: 65px;
+      height: 65px;
+
+      margin: 0 auto 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(135deg,
+          rgba(59,130,246,0.25),
+          rgba(139,92,246,0.25));
+
+      font-size: 1.7rem;
+      color: var(--cyan);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* ==============================
+       PROJECTS
+    ============================== */
+
+    .projects-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+      gap: 25px;
+    }
+
+    .project-card {
+      overflow: hidden;
+
+      transition:
+        transform 0.35s ease,
+        border 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(59,130,246,0.5);
+    }
+
+    .project-image {
+      height: 220px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(135deg,
+          rgba(59,130,246,0.35),
+          rgba(139,92,246,0.35));
+    }
+
+    .project-image img {
+      height: 100%;
+      object-fit: cover;
+
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .project-image .placeholder {
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+
+      font-size: 3rem;
+
+      background:
+        linear-gradient(135deg,
+          #172554,
+          #312e81);
+    }
+
+    .project-image span {
+      font-size: 0.8rem;
+      margin-top: 12px;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      font-family: "Space Grotesk";
+      font-size: 1.25rem;
+
+      margin-bottom: 12px;
+    }
+
+    .project-content p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+
+      margin-bottom: 20px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      margin-bottom: 22px;
+    }
+
+    .tech-stack span {
+      padding: 6px 10px;
+
+      font-size: 0.75rem;
+
+      color: var(--cyan);
+
+      background: rgba(34,211,238,0.08);
+
+      border: 1px solid rgba(34,211,238,0.15);
+
+      border-radius: 20px;
+    }
+
+    .project-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .project-buttons a {
+      font-size: 0.85rem;
+      padding: 10px 15px;
+    }
+
+    /* ==============================
+       EXPERIENCE
+    ============================== */
+
+    .timeline {
+      max-width: 850px;
+      margin: auto;
+
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+
+      left: 25px;
+      top: 0;
+      bottom: 0;
+
+      width: 2px;
+
+      background:
+        linear-gradient(
+          var(--blue),
+          var(--purple),
+          transparent
+        );
+    }
+
+    .timeline-item {
+      position: relative;
+
+      padding-left: 80px;
+      margin-bottom: 45px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+
+      left: 15px;
+      top: 25px;
+
+      width: 22px;
+      height: 22px;
+
+      border-radius: 50%;
+
+      background: var(--gradient);
+
+      border: 4px solid var(--bg);
+    }
+
+    .timeline-card {
+      padding: 28px;
+    }
+
+    .timeline-date {
+      color: var(--cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+
+      margin-bottom: 10px;
+    }
+
+    .timeline-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 5px;
+    }
+
+    .timeline-company {
+      color: var(--purple);
+      font-size: 0.9rem;
+
+      margin-bottom: 15px;
+    }
+
+    .timeline-card p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+
+    /* ==============================
+       EDUCATION
+    ============================== */
+
+    .education-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+      gap: 25px;
+    }
+
+    .education-card {
+      padding: 30px;
+
+      transition: transform 0.3s ease;
+    }
+
+    .education-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .education-icon {
+      font-size: 1.8rem;
+      color: var(--cyan);
+
+      margin-bottom: 18px;
+    }
+
+    .education-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .education-card p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+
+    /* ==============================
+       RESUME
+    ============================== */
+
+    .resume-box {
+      padding: 60px 35px;
+
+      text-align: center;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-box::before {
+      content: "";
+
+      position: absolute;
+
+      width: 400px;
+      height: 400px;
+
+      background:
+        radial-gradient(circle,
+          rgba(59,130,246,0.18),
+          transparent 65%);
+
+      top: -200px;
+      left: -100px;
+    }
+
+    .resume-box h2 {
+      position: relative;
+
+      font-family: "Space Grotesk";
+      font-size: clamp(2rem,4vw,2.8rem);
+
+      margin-bottom: 15px;
+    }
+
+    .resume-box p {
+      position: relative;
+
+      color: var(--text-secondary);
+      max-width: 600px;
+
+      margin: 0 auto 30px;
+    }
+
+    .resume-box a {
+      position: relative;
+    }
+
+    /* ==============================
+       CONTACT
+    ============================== */
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        0.9fr 1.1fr;
+
+      gap: 40px;
+    }
+
+    .contact-info {
+      padding: 35px;
+    }
+
+    .contact-info h3 {
+      font-family: "Space Grotesk";
+      font-size: 1.6rem;
+
+      margin-bottom: 15px;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      margin-bottom: 25px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-item i {
+      width: 45px;
+      height: 45px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 12px;
+
+      background: rgba(59,130,246,0.15);
+      color: var(--cyan);
+    }
+
+    .contact-item span {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .contact-form {
+      padding: 35px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+
+      padding: 14px 16px;
+
+      background: rgba(255,255,255,0.05);
+
+      border: 1px solid var(--border);
+
+      border-radius: 10px;
+
+      color: white;
+
+      font-family: inherit;
+
+      outline: none;
+
+      transition: border 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--blue);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* ==============================
+       FOOTER
+    ============================== */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 45px 0;
+    }
+
+    .footer-content {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      flex-wrap: wrap;
+    }
+
+    .footer-name {
+      font-family: "Space Grotesk";
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .copyright {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    /* ==============================
+       BACK TO TOP
+    ============================== */
+
+    .back-to-top {
+      position: fixed;
+
+      bottom: 25px;
+      right: 25px;
+
+      width: 45px;
+      height: 45px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--gradient);
+
+      color: white;
+
+      border-radius: 12px;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transform: translateY(20px);
+
+      transition: all 0.3s ease;
+
+      z-index: 999;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+
+      transform: translateY(0);
+    }
+
+    /* ==============================
+       SCROLL REVEAL
+    ============================== */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(40px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==============================
+       MOBILE
+    ============================== */
+
+    @media (max-width: 850px) {
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+
+        top: 75px;
+        left: 0;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        background: rgba(7,11,23,0.97);
+
+        padding: 30px;
+
+        display: none;
+
+        border-bottom:
+          1px solid var(--border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+    }
+
+    @media (max-width: 500px) {
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero-buttons,
+      .social-links {
+        justify-content: center;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .timeline-item {
+        padding-left: 65px;
+      }
+
+      .footer-content {
+        justify-content: center;
+        text-align: center;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- ==============================
+       NAVIGATION
+  ============================== -->
+
+  <header>
+
+    <div class="container">
+
+      <nav>
+
+        <a href="#home" class="logo">
+          [YOUR NAME]<span>.</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+
+          <li>
+            <a href="[RESUME_LINK]"
+              class="btn btn-primary nav-btn"
+              download>
+              Resume
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- ==============================
+       HERO
+  ============================== -->
+
+  <section class="hero" id="home">
+
+    <div class="container">
+
+      <div class="hero-content reveal">
+
+        <div class="hero-tag">
+          <i class="fa-solid fa-location-dot"></i>
+          GIS • Remote Sensing • Geospatial Analysis
+        </div>
+
+        <h1>
+          Hi, I'm
+          <span class="gradient-text">[YOUR NAME]</span>
+        </h1>
+
+        <div class="hero-role">
+          GIS Analyst
+        </div>
+
+        <p class="hero-description">
+
+          I work with Geographic Information Systems,
+          Remote Sensing, spatial data and geospatial
+          technologies to transform complex geographic
+          information into meaningful insights and
+          practical solutions.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+          <a href="#projects"
+            class="btn btn-primary">
+
+            <i class="fa-solid fa-layer-group"></i>
+            View Projects
+
+          </a>
+
+
+          <a href="[RESUME_LINK]"
+            class="btn btn-secondary"
+            download>
+
+            <i class="fa-solid fa-download"></i>
+            Download Resume
+
+          </a>
+
+        </div>
+
+
+        <div class="social-links">
+
+          <a href="[GITHUB]"
+            target="_blank"
+            aria-label="GitHub">
+
+            <i class="fa-brands fa-github"></i>
+
+          </a>
+
+
+          <a href="[LINKEDIN]"
+            target="_blank"
+            aria-label="LinkedIn">
+
+            <i class="fa-brands fa-linkedin-in"></i>
+
+          </a>
+
+
+          <a href="[INSTAGRAM]"
+            target="_blank"
+            aria-label="Instagram">
+
+            <i class="fa-brands fa-instagram"></i>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       ABOUT
+  ============================== -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <span class="section-tag">
+          About Me
+        </span>
+
+        <h2 class="section-title">
+          Turning <span class="gradient-text">
+          Spatial Data</span> Into Insights
+        </h2>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <div class="about-content reveal">
+
+          <h3>
+            Building skills in GIS and Geospatial Technology.
+          </h3>
+
+          <p>
+
+            I am an aspiring GIS professional with a strong
+            interest in Geographic Information Systems,
+            Remote Sensing, spatial analysis and geospatial
+            technologies.
+
+          </p>
+
+          <p>
+
+            My learning journey focuses on working with
+            geographic data, creating maps, performing
+            spatial analysis and understanding how
+            geospatial information can support real-world
+            decision making.
+
+          </p>
+
+          <p>
+
+            I continuously develop my technical skills
+            through academic projects, practical GIS
+            exercises and hands-on exploration of modern
+            geospatial tools.
+
+          </p>
+
+        </div>
+
+
+        <div class="stats-grid reveal">
+
+          <div class="stat-card glass-card">
+
+            <span class="stat-number">
+              [X]+
+            </span>
+
+            <span class="stat-label">
+              GIS Projects
+            </span>
+
+          </div>
+
+
+          <div class="stat-card glass-card">
+
+            <span class="stat-number">
+              6+
+            </span>
+
+            <span class="stat-label">
+              Technical Skills
+            </span>
+
+          </div>
+
+
+          <div class="stat-card glass-card">
+
+            <span class="stat-number">
+              GIS
+            </span>
+
+            <span class="stat-label">
+              Primary Focus
+            </span>
+
+          </div>
+
+
+          <div class="stat-card glass-card">
+
+            <span class="stat-number">
+              100%
+            </span>
+
+            <span class="stat-label">
+              Continuous Learning
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       SKILLS
+  ============================== -->
+
+  <section id="skills">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <span class="section-tag">
+          Technical Skills
+        </span>
+
+        <h2 class="section-title">
+          Tools & <span class="gradient-text">
+          Technologies</span>
+        </h2>
+
+        <p class="section-description">
+
+          A growing toolkit focused on GIS, Remote Sensing,
+          spatial analysis and geospatial technologies.
+
+        </p>
+
+      </div>
+
+
+      <div class="skills-grid">
+
+        <!-- ArcGIS -->
+
+        <div class="skill-card glass-card reveal">
+
+          <div class="skill-icon">
+            <i class="fa-solid fa-map"></i>
+          </div>
+
+          <h3>ArcGIS</h3>
+
+          <p>
+            Spatial analysis, mapping,
+            geoprocessing and cartography.
+          </p>
+
+        </div>
+
+
+        <!-- QGIS -->
+
+        <div class="skill-card glass-card reveal">
+
+          <div class="skill-icon">
+            <i class="fa-solid fa-earth-americas"></i>
+          </div>
+
+          <h3>QGIS</h3>
+
+          <p>
+            Open-source GIS, data visualization
+            and spatial analysis.
+          </p>
+
+        </div>
+
+
+        <!-- ERDAS -->
+
+        <div class="skill-card glass-card reveal">
+
+          <div class="skill-icon">
+            <i class="fa-solid fa-satellite"></i>
+          </div>
+
+          <h3>ERDAS Imagine</h3>
+
+          <p>
+            Remote sensing, image processing
+            and satellite data analysis.
+          </p>
+
+        </div>
+
+
+        <!-- GEE -->
+
+        <div class="skill-card glass-card reveal">
+
+          <div class="skill-icon">
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+
+          <h3>Google Earth Engine</h3>
+
+          <p>
+            Cloud-based geospatial analysis
+            and satellite data processing.
+          </p>
+
+        </div>
+
+
+        <!-- AutoCAD -->
+
+        <div class="skill-card glass-card reveal">
+
+          <div class="skill-icon">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+
+          <h3>AutoCAD</h3>
+
+          <p>
+            Spatial design, mapping
+            and technical drawing.
+          </p>
+
+        </div>
+
+
+        <!-- ML -->
+
+        <div class="skill-card glass-card reveal">
+
+          <div class="skill-icon">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+
+          <h3>Machine Learning</h3>
+
+          <p>
+            Introduction to geospatial
+            data analysis and ML concepts.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       PROJECTS
+  ============================== -->
+
+  <section id="projects">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <span class="section-tag">
+          Portfolio
+        </span>
+
+        <h2 class="section-title">
+
+          Featured
+          <span class="gradient-text">
+            Projects
+          </span>
+
+        </h2>
+
+        <p class="section-description">
+
+          Selected GIS and geospatial projects.
+          Replace these examples with your actual work.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="projects-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <article class="project-card glass-card reveal">
+
+          <div class="project-image">
+
+            <!-- Replace with project image -->
+            <!--
+            <img src="images/project1.jpg"
+              alt="Landslide Susceptibility Map">
+            -->
+
+            <div class="placeholder">
+
+              <i class="fa-solid fa-mountain"></i>
+
+              <span>Project Preview</span>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-content">
+
+            <h3>
+              Landslide Susceptibility Mapping
+            </h3>
+
+            <p>
+
+              A GIS-based spatial analysis project
+              for identifying areas potentially
+              vulnerable to landslides using
+              environmental and terrain factors.
+
+            </p>
+
+
+            <div class="tech-stack">
+
+              <span>ArcGIS</span>
+              <span>DEM</span>
+              <span>Remote Sensing</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a href="[PROJECT_GITHUB]"
+                target="_blank"
+                class="btn btn-secondary">
+
+                <i class="fa-brands fa-github"></i>
+                GitHub
+
+              </a>
+
+
+              <a href="[LIVE_DEMO]"
+                target="_blank"
+                class="btn btn-primary">
+
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Demo
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 2 -->
+
+        <article class="project-card glass-card reveal">
+
+          <div class="project-image">
+
+            <div class="placeholder">
+
+              <i class="fa-solid fa-water"></i>
+
+              <span>Project Preview</span>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-content">
+
+            <h3>
+              Groundwater Vulnerability Assessment
+            </h3>
+
+            <p>
+
+              A conceptual GIS-based methodology
+              for assessing groundwater vulnerability
+              using environmental and hydrogeological
+              datasets.
+
+            </p>
+
+
+            <div class="tech-stack">
+
+              <span>GIS</span>
+              <span>Spatial Analysis</span>
+              <span>Hydrology</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a href="[PROJECT_GITHUB]"
+                target="_blank"
+                class="btn btn-secondary">
+
+                <i class="fa-brands fa-github"></i>
+                GitHub
+
+              </a>
+
+
+              <a href="[LIVE_DEMO]"
+                target="_blank"
+                class="btn btn-primary">
+
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Demo
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- PROJECT 3 -->
+
+        <article class="project-card glass-card reveal">
+
+          <div class="project-image">
+
+            <div class="placeholder">
+
+              <i class="fa-solid fa-satellite"></i>
+
+              <span>Project Preview</span>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-content">
+
+            <h3>
+              Remote Sensing Index Analysis
+            </h3>
+
+            <p>
+
+              Analysis of satellite imagery using
+              geospatial indices to understand
+              vegetation, water and land surface
+              characteristics.
+
+            </p>
+
+
+            <div class="tech-stack">
+
+              <span>GEE</span>
+              <span>NDVI</span>
+              <span>Satellite Data</span>
+
+            </div>
+
+
+            <div class="project-buttons">
+
+              <a href="[PROJECT_GITHUB]"
+                target="_blank"
+                class="btn btn-secondary">
+
+                <i class="fa-brands fa-github"></i>
+                GitHub
+
+              </a>
+
+
+              <a href="[LIVE_DEMO]"
+                target="_blank"
+                class="btn btn-primary">
+
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Demo
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       EXPERIENCE
+  ============================== -->
+
+  <section id="experience">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <span class="section-tag">
+          Experience
+        </span>
+
+        <h2 class="section-title">
+
+          Professional
+          <span class="gradient-text">
+            Journey
+          </span>
+
+        </h2>
+
+      </div>
+
+
+      <div class="timeline">
+
+
+        <!-- Experience 1 -->
+
+        <div class="timeline-item reveal">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card glass-card">
+
+            <div class="timeline-date">
+              [MONTH YEAR] – [MONTH YEAR]
+            </div>
+
+            <h3>
+              GIS / Geospatial Internship
+            </h3>
+
+            <div class="timeline-company">
+              [ORGANIZATION NAME]
+            </div>
+
+            <p>
+
+              Add your actual internship details here.
+              Describe GIS tasks, digitization,
+              georeferencing, satellite imagery,
+              spatial analysis or other technical
+              experience.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Experience 2 -->
+
+        <div class="timeline-item reveal">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card glass-card">
+
+            <div class="timeline-date">
+              [YEAR] – Present
+            </div>
+
+            <h3>
+              Technical GIS Learning & Projects
+            </h3>
+
+            <div class="timeline-company">
+              Academic & Independent Projects
+            </div>
+
+            <p>
+
+              Developing practical knowledge through
+              GIS projects, Remote Sensing analysis,
+              spatial datasets and modern geospatial
+              software.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Experience 3 -->
+
+        <div class="timeline-item reveal">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-card glass-card">
+
+            <div class="timeline-date">
+              [YEAR]
+            </div>
+
+            <h3>
+              Relevant Technical Experience
+            </h3>
+
+            <div class="timeline-company">
+              [PROJECT / TRAINING / ORGANIZATION]
+            </div>
+
+            <p>
+
+              Add relevant technical experience,
+              training, workshops or practical
+              geospatial projects here.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       EDUCATION
+  ============================== -->
+
+  <section id="education">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <span class="section-tag">
+          Background
+        </span>
+
+        <h2 class="section-title">
+
+          Education &
+          <span class="gradient-text">
+            Certifications
+          </span>
+
+        </h2>
+
+      </div>
+
+
+      <div class="education-grid">
+
+
+        <div class="education-card glass-card reveal">
+
+          <div class="education-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+
+          <h3>
+            [DEGREE NAME]
+          </h3>
+
+          <p>
+            [UNIVERSITY / COLLEGE NAME]
+          </p>
+
+          <p>
+            [YEAR – YEAR / PURSUING]
+          </p>
+
+        </div>
+
+
+
+        <div class="education-card glass-card reveal">
+
+          <div class="education-icon">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+
+          <h3>
+            GIS & Remote Sensing
+          </h3>
+
+          <p>
+            Add your relevant GIS, Remote Sensing
+            or geospatial certifications here.
+          </p>
+
+        </div>
+
+
+
+        <div class="education-card glass-card reveal">
+
+          <div class="education-icon">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+
+          <h3>
+            Professional Courses
+          </h3>
+
+          <p>
+            Add relevant courses such as
+            Machine Learning, Python,
+            Geospatial Analysis or Remote Sensing.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       RESUME
+  ============================== -->
+
+  <section id="resume">
+
+    <div class="container">
+
+      <div class="resume-box glass-card reveal">
+
+        <h2>
+          Interested in My
+          <span class="gradient-text">
+            Work?
+          </span>
+        </h2>
+
+        <p>
+
+          Download my resume to learn more about
+          my education, technical skills,
+          projects and professional experience.
+
+        </p>
+
+
+        <a href="[RESUME_LINK]"
+          class="btn btn-primary"
+          download>
+
+          <i class="fa-solid fa-file-arrow-down"></i>
+          Download Resume
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       CONTACT
+  ============================== -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="section-header reveal">
+
+        <span class="section-tag">
+          Contact
+        </span>
+
+        <h2 class="section-title">
+
+          Let's Work
+          <span class="gradient-text">
+            Together
+          </span>
+
+        </h2>
+
+        <p class="section-description">
+
+          Have a GIS project, opportunity or
+          collaboration in mind? Feel free to connect.
+
+        </p>
+
+      </div>
+
+
+
+      <div class="contact-grid">
+
+
+        <!-- Contact Info -->
+
+        <div class="contact-info glass-card reveal">
+
+          <h3>
+            Get In Touch
+          </h3>
+
+          <p>
+
+            I am always interested in connecting
+            with professionals, researchers and
+            organizations working with GIS,
+            Remote Sensing and geospatial technology.
+
+          </p>
+
+
+          <div class="contact-details">
+
+            <div class="contact-item">
+
+              <i class="fa-solid fa-user"></i>
+
+              <div>
+
+                <span>Name</span>
+
+                <h4>[YOUR NAME]</h4>
+
+              </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <i class="fa-solid fa-envelope"></i>
+
+              <div>
+
+                <span>Email</span>
+
+                <h4>[EMAIL]</h4>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="social-links">
+
+            <a href="[GITHUB]"
+              target="_blank">
+
+              <i class="fa-brands fa-github"></i>
+
+            </a>
+
+
+            <a href="[LINKEDIN]"
+              target="_blank">
+
+              <i class="fa-brands fa-linkedin-in"></i>
+
+            </a>
+
+
+            <a href="[INSTAGRAM]"
+              target="_blank">
+
+              <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Contact Form -->
+
+        <form
+          class="contact-form glass-card reveal"
+          onsubmit="sendMessage(event)">
+
+          <div class="form-group">
+
+            <input
+              type="text"
+              id="name"
+              placeholder="Your Name"
+              required>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <input
+              type="email"
+              id="email"
+              placeholder="Your Email"
+              required>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <textarea
+              id="message"
+              placeholder="Your Message"
+              required></textarea>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn btn-primary">
+
+            <i class="fa-solid fa-paper-plane"></i>
+            Send Message
+
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==============================
+       FOOTER
+  ============================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div>
+
+          <div class="footer-name">
+            [YOUR NAME]
+          </div>
+
+          <div class="copyright">
+            © <span id="year"></span>
+            [YOUR NAME]. All Rights Reserved.
+          </div>
+
+        </div>
+
+
+        <div class="social-links">
+
+          <a href="[GITHUB]"
+            target="_blank">
+
+            <i class="fa-brands fa-github"></i>
+
+          </a>
+
+
+          <a href="[LINKEDIN]"
+            target="_blank">
+
+            <i class="fa-brands fa-linkedin-in"></i>
+
+          </a>
+
+
+          <a href="[INSTAGRAM]"
+            target="_blank">
+
+            <i class="fa-brands fa-instagram"></i>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- ==============================
+       BACK TO TOP
+  ============================== -->
+
+  <a href="#home"
+    class="back-to-top"
+    id="backToTop"
+    aria-label="Back to top">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+  </a>
+
+
+
+  <!-- ==============================
+       JAVASCRIPT
+  ============================== -->
+
+  <script>
+
+    /* ==============================
+       MOBILE MENU
+    ============================== */
+
+    const hamburger =
+      document.getElementById("hamburger");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    hamburger.addEventListener("click", () => {
+
+      navLinks.classList.toggle("active");
+
+    });
+
+
+    /* Close menu when clicking link */
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("active");
+
+        });
+
+      });
+
+
+
+    /* ==============================
+       SCROLL REVEAL
+    ============================== */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+
+    const revealOnScroll = () => {
+
+      const windowHeight =
+        window.innerHeight;
+
+
+      revealElements.forEach(element => {
+
+        const elementTop =
+          element.getBoundingClientRect().top;
+
+
+        if (
+          elementTop <
+          windowHeight - 100
+        ) {
+
+          element.classList.add("active");
+
+        }
+
+      });
+
+    };
+
+
+    window.addEventListener(
+      "scroll",
+      revealOnScroll
+    );
+
+
+    revealOnScroll();
+
+
+
+    /* ==============================
+       BACK TO TOP BUTTON
+    ============================== */
+
+    const backToTop =
+      document.getElementById("backToTop");
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (window.scrollY > 500) {
+
+          backToTop.classList.add("show");
+
+        }
+
+        else {
+
+          backToTop.classList.remove("show");
+
+        }
+
+      }
+    );
+
+
+
+    /* ==============================
+       FOOTER YEAR
+    ============================== */
+
+    document.getElementById("year")
+      .textContent =
+      new Date().getFullYear();
+
+
+
+    /* ==============================
+       CONTACT FORM
+    ============================== */
+
+    function sendMessage(event) {
+
+      event.preventDefault();
+
+
+      const name =
+        document.getElementById("name").value;
+
+      const email =
+        document.getElementById("email").value;
+
+      const message =
+        document.getElementById("message").value;
+
+
+      /*
+        IMPORTANT:
+
+        Replace [EMAIL] below with your email.
+
+        This opens the user's default
+        email application.
+      */
+
+      const subject =
+        "Portfolio Contact from " + name;
+
+
+      const body =
+        "Name: " + name +
+        "\nEmail: " + email +
+        "\n\nMessage:\n" + message;
+
+
+      window.location.href =
+        "mailto:[EMAIL]" +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
+
+    }
+
+  </script>
+
+</body>
+</html>
